@@ -261,6 +261,12 @@
 
       
       
+      <a href="/categories/30%E5%B2%81%E5%89%8D%E7%9A%84%E5%A4%8F%E5%A4%A9/" class="badge h-6 no-underline hover:badge-primary">
+        30岁前的夏天
+      </a>
+      
+      
+      
       <span class="badge h-6 badge-primary">
         年度总结
       </span>
@@ -292,7 +298,7 @@
 
     <p class="date text-base-content/60">
     
-      <span data-format="luxon">2024-12-31T00:00:00Z</span>
+      Tuesday, Dec 31, 2024
     
     </p>
 
@@ -500,24 +506,6 @@
 <script src="/js/main.min.js"></script>
 
     
-
-
-<script
-  src="https://cdn.jsdelivr.net/npm/luxon@1.26.0"
-  integrity="sha256-4sbTzmCCW9LGrIh5OsN8V5Pfdad1F1MwhLAOyXKnsE0="
-  crossorigin="anonymous"
-></script>
-<script>
-  format()
-
-  function format() {
-    document.querySelectorAll('span[data-format="luxon"]').forEach(el => {
-      const date = el.textContent
-
-      el.textContent = luxon.DateTime.fromISO(date, { locale: "en" }).toFormat("yyyy年MM月dd日")
-    })
-  }
-</script>
 
 
 
