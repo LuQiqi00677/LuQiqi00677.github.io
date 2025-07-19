@@ -6,14 +6,11 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-
-
-All Categories | 鹿七七的愿望书</title>
+    <title>Search | 鹿七七的愿望书</title>
 
     
 
-<link rel="canonical" href="https://LuQiqi00677.github.io/categories/" />
+<link rel="canonical" href="https://LuQiqi00677.github.io/search/" />
 
 
 
@@ -25,9 +22,9 @@ All Categories | 鹿七七的愿望书</title>
 <meta name="generator" content="Hugo 0.148.1">
 
 
-<meta property="og:url" content="https://LuQiqi00677.github.io/categories/">
+<meta property="og:url" content="https://LuQiqi00677.github.io/search/">
   <meta property="og:site_name" content="鹿七七的愿望书">
-  <meta property="og:title" content="Categories">
+  <meta property="og:title" content="鹿七七的愿望书">
   <meta property="og:description" content="博客介绍">
   <meta property="og:locale" content="zh_cn">
   <meta property="og:type" content="website">
@@ -38,7 +35,7 @@ All Categories | 鹿七七的愿望书</title>
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://LuQiqi00677.github.io/img/luqiqi.jpg">
-  <meta name="twitter:title" content="Categories">
+  <meta name="twitter:title" content="鹿七七的愿望书">
   <meta name="twitter:description" content="博客介绍">
 
 
@@ -242,28 +239,55 @@ All Categories | 鹿七七的愿望书</title>
             
 
 
-<div class="flex flex-col md:flex-row mt-4">
+<div class="mt-8 lg:mt-12 px-4"
 
-  <div class="md:basis-[200px] lg:basis-[300px] p-4 prose dark:prose-invert">
-    <h1 class="text-2xl">All Categories</h1>
-    <p class="text-sm">0 categories</p>
-    <div class="flex flex-wrap gap-4 mt-6">
-      
-    </div>
-  </div>
-  
-  <div class="divider divider-vertical md:divider-horizontal px-4 md:px-0"></div>
-  
-  <div class="flex-1">
-    
+x-data="{
+  search: '',
+  get posts() { return this.search !== '' ? window.fuse.search(this.search) : [] },
+}">
+  <label for="search" class="input w-full">
+    <input id="search" name="search" type="text" class="grow" placeholder="Search" x-model.debounce="search" />
+    <ion-icon name="search"></ion-icon>
+  </label>
 
-    
-    <div class="dream-grid">
-      
-    </div>
-    
+  <div class="mt-8 space-y-4">
+  <template x-for="post in posts">
+    <a class="card bg-base-100 hover:bg-base-content/10 cursor-pointer border border-base-content/30" :href="post.item.url">
+      <div class="card-body">
+        <h2 class="card-title" x-text="post.item.title"></h2>
 
-    
+        <div x-html="post.item.description"></div>
+
+        <div class="card-actions justify-between items-center mt-4">
+          <div class="flex items-center">
+            <template x-if="post.item.avatar">
+            <div class="avatar mr-1">
+              <div class="w-8 rounded-full">
+                <img class="my-0" :src="post.item.avatar" :alt="post.item.author" />
+              </div>
+            </div>
+            </template>
+            <template x-if="!post.item.avatar">
+            <span>@</span>
+            </template>
+
+            <template x-if="post.item.author">
+            <span x-text="post.item.author"></span>
+            </template>
+            <template x-if="!post.item.author">
+            <span>鹿七七00677</span>
+            </template>
+            </span>
+          </div>
+
+          <div class="inline-flex items-center">
+            <ion-icon name="time" class="mr-1"></ion-icon>
+            <span><span x-text="post.item.readingTime"></span> minute read</span>
+          </div>
+        </div>
+      </div>
+    </a>
+  </template>
   </div>
 </div>
 
@@ -436,24 +460,19 @@ All Categories | 鹿七七的愿望书</title>
     
 
 
-<script
-  src="https://cdn.jsdelivr.net/npm/luxon@1.26.0"
-  integrity="sha256-4sbTzmCCW9LGrIh5OsN8V5Pfdad1F1MwhLAOyXKnsE0="
-  crossorigin="anonymous"
-></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0/dist/fuse.min.js" integrity="sha256-42IbU8t3tOwwbexB7ZVRHm3YDRf65aBPPjRtIUufj5I=" crossorigin="anonymous"></script>
 <script>
-  format()
+  var fuseData = [];
+  var fuseOptions = {
+    keys: [
+      "title",
+    ]
+  };
 
-  function format() {
-    document.querySelectorAll('span[data-format="luxon"]').forEach(el => {
-      const date = el.textContent
-
-      el.textContent = luxon.DateTime.fromISO(date, { locale: "en" }).toFormat("yyyy年MM月dd日")
-    })
-  }
+  var fuse = new Fuse(fuseData, fuseOptions);
 </script>
-
-
 
 
 

@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>鹿七七的愿望书</title>
-    <link>https://LuQiqi00677.github.io/</link>
+    <link>https://LuQiqi00677.github.io/search/</link>
     <description>Recent content on 鹿七七的愿望书</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
-    <atom:link href="https://LuQiqi00677.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://LuQiqi00677.github.io/search/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
